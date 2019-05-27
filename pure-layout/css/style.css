@@ -1,0 +1,326 @@
+/* Style Reset */
+body, h1, h2, h3, p, ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  font-family: Georgia, serif;
+  color: #252525;
+}
+
+/* Menu */
+
+.menu {
+  background-color: #252525;
+  padding: 20px 0;
+}
+
+.menu-container {
+  /* Ajuda a manter um tamanho de lagura máxima entre dispositivos */
+  max-width: 1080px;
+
+  /* Centralizar - Indicar ao CSS que calcule automaticamente o margin 
+  das laterais */
+  margin: 0 auto;
+}
+
+.menu-container::after, .menu-container::before {
+  content: '';
+  display: table;
+
+  /* Como nosso container possui dois elementos (menu-brand e menu-nav)
+  ele não consegue calcular automaticamente o 'height'. Para solucionar
+  isso, temos duas abordagens: Definir um height fixo ou utilizar a propriedade
+  clear com o valor 'both'. Essa segunda abordagem é chamada de Clear Fix */
+  clear: both;
+}
+
+.menu-brand {
+  /* Cria o elemento pegando todo o bloco disponível */
+  display: block;
+
+  /* Flutuar a esquerda do bloco disponível */
+  float: left;
+
+  margin-left: 10px;
+}
+
+.menu-nav {
+  /* Flutua a direita do bloco disponível*/
+  float: right;
+  margin-right: 10px;
+}
+
+.menu-nav li {
+  /*Ocupar o tamanho de um bloco, porém, lado a lado*/
+  display: inline-block;
+}
+
+.menu-nav a {
+  display: block;
+
+  /* Aumentar a área de contato do link */
+  padding: 10px;
+
+  /* Retirar decoração do link */
+  text-decoration: none;
+  color: #fff;
+
+  /* Para chegar em 'em', é necessário consultar qual o pixel base para
+  tipografia do Browser (geralmente o padrão é 16). Portanto, se quiser
+  18px basta dividir 18 por esse valor base, por exemplo:
+  18 / 16 = 1.125 
+  
+  Isso é muito útil para responsividade pois mantém a proporção
+
+  Todas as tipografias devem utilizar em
+  */
+  font-size: 1.125em;
+}
+
+/* Intro */
+
+.intro {
+  /* Utilizar uma img como background, sem repetição e alinhando ela ao centro
+  tanto verticalmente quanto horizontalmente. */
+  background: url('../img/bg-intro.jpg') no-repeat center center;
+
+  /* Background sempre 100%, ou seja, cobrindo toda área */
+  background-size: cover;
+
+  padding: 150px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.intro h1 {
+  text-transform: uppercase;
+  font-size: 3em;
+}
+
+/* Conteúdo criado logo após o h1 (é o nosso divider) */
+.intro h1::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 4px;
+  background: #fff;
+  margin: 10px auto;
+}
+
+.intro p {
+  font-style: italic;
+  font-size: 1.125em;
+}
+
+/* About */
+
+.about {
+  padding: 60px 0;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 2.25em;
+  margin-bottom: 60px;
+}
+
+/* O sinal de maior indica que iremos alterar somente paragráfos
+diretamente abaixo da classe about */
+.about > p {
+  font-size: 1.25em;
+  line-height: 1.4em;
+  font-style: italic;
+  text-align: center;
+  margin: 20px auto;
+
+  /* Esse max-width é para quebrar o paragrafo independente da largura
+  da tela. Isso ajuda na leitura, pois o recomendado é de 12 a 15 palavras
+  por linha no máximo. */
+  max-width: 510px;
+}
+
+.about-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.about-container::after, .about-container::before {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.about-item {
+  width: 510px;
+  float: left;
+  margin: 0 10px;
+}
+
+.about-item img {
+  display: block;
+  max-width: 100%;
+}
+
+.about-item h3 {
+  padding: 5px 0 10px 0;
+  font-size: 2.25em;
+  line-height: 1em;
+  background: #252525;
+  width: 40%;
+  color: #fff;
+  font-style: italic;
+  font-weight: normal; /* retira o negrito */
+  text-align: center;
+
+  /* Geralmente os elementos vêm com 'position: static' e dessa forma as
+  propriedades 'top, bottom, left, right' não o afetam. Portanto, temos
+  duas possíveis soluções: alterar a position e definir uma propriedade top
+  ou então usar algo como margin-top negativo */
+  position: relative;
+  top: -25px;
+
+  /* Nesse caso não precisamos usar z-index pois a imagem não possui position
+  definida. Caso ela tivesse, teríamos que definir o z-index da img e do item*/
+}
+
+
+/* Produtos */
+
+.products {
+  background: #e7e4d8;
+  padding: 60px 0;
+  border-top: 3px solid #d6d3c8;
+  border-bottom: 3px solid #d6d3c8;
+}
+
+.products-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.products-container::after, .products-container::before {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.products-item {
+  width: 30%;
+  float: left;
+
+  /* Colocamos margin no bottom também caso haja redução da tela */
+  margin: 0 10px 20px 10px;
+}
+
+.products-item h2 {
+  text-align: center;
+  font-size: 2.25em;
+  margin-bottom: 20px;
+}
+
+.products-item h2::before {
+  content: '';
+  display: block;
+  margin: 20px auto;
+
+  /* Totalmente arredondado */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  border: 5px solid #e7e4d8;
+
+  /* O currentColor é uma propriedade que fará nosso item utilizar
+  a cor definida para o h2 */
+  box-shadow: 0 0 0 10px currentColor;
+  background: currentColor;
+}
+
+.products-item p {
+  font-size: 0.875em;
+  line-height: 1.4em;
+}
+
+#h2-paulista {
+  color: #492901;
+}
+
+#h2-carioca {
+  color: #c17139;
+}
+
+#h2-mineiro {
+  color: #d7a54d;
+}
+
+.products-btn {
+  width: 180px;
+  border: 3px solid #252525;
+  color: #252525;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 1.125em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 15px;
+  margin: 20px auto 0 auto;
+}
+
+/* Places */
+
+.places {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.places-item {
+  clear: both;
+  margin: 60px auto;
+
+  /* O overflow hidden é uma outra forma de "clearfix" bastante utilizada, porém,
+  ele traz alguns outros problemas quando temos sobreposição */
+  overflow: hidden;
+}
+
+.places-item img {
+  width: 460px;
+  display: block;
+  float: left;
+  margin: 0 10px;
+}
+
+.places-item > div {
+  width: 460px;
+  display: block;
+  float: left;
+  margin: 0 10px;
+}
+
+.places-item h2 {
+  font-size: 2.25em;
+  margin-bottom: 20px;
+}
+
+.places-item p {
+  font-size: 1.125em;
+  line-height: 1.4em;
+  max-width: 320px;
+  margin-bottom: 40px;
+}
+
+.places-item a {
+  border: 3px solid #252525;
+  color: #252525;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.125em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 20px;
+}
