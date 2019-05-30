@@ -9,6 +9,11 @@ body {
   color: #252525;
 }
 
+* {
+  /* Essa propriedade nos ajuda a ver como estão os elementos do nosso site */
+  box-sizing: border-box;
+}
+
 /* Menu */
 
 .menu {
@@ -323,4 +328,91 @@ diretamente abaixo da classe about */
   text-transform: uppercase;
   text-align: center;
   padding: 10px 20px;
+}
+
+/* Newsletter */
+
+.newsletter {
+  background: #e7e4d8;
+  padding: 30px 0;
+}
+
+.newsletter-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.subscribe-info {
+  width: 460px;
+  margin: 0 10px;
+  float: left;
+}
+
+.subscribe-info h2 {
+  font-size: 2.25em;
+}
+
+.subscribe-info p {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.subscribe-info form {
+  width: 460px;
+  margin: 0 10px;
+  float: left;
+}
+
+.subscribe-form label {
+  /* display none não reserva um espaço, ja o visibility reserva */
+  display: none; 
+  /* visibility: hidden; */
+}
+
+.subscribe-form input {
+  width: 460px;
+  border: 3px solid #252525;
+  background: none;
+  font-size: 1.5em;
+  font-style: italic;
+  font-family: Georgia, serif;
+  padding: 10px;
+  float: left;
+}
+
+.subscribe-form button {
+  text-transform: uppercase;
+  border: none;
+  background: #252525;
+  color: #fff;
+  font-size: 1.5em;
+  font-family: Georgia, serif;
+  padding: 13px 5px;
+  float: left;
+  cursor: pointer;
+}
+
+/* Footer */
+
+.footer {
+  background: #d6d3c8;
+  padding: 40px 0;
+}
+
+.footer-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.footer p {
+  float: left;
+  margin: 0 10px;
+  font-size: 1.125em;
+  line-height: 1.4em;
+}
+
+.footer img {
+  float: right;
 }
