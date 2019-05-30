@@ -84,6 +84,15 @@ body {
   font-size: 1.125em;
 }
 
+/* Esses efeitos serão aplicados para larguras menores que 739px
+only screen and aplica somente em telas (nao aplica em impressao por ex) */
+@media only screen and (max-width: 739px) {
+  .menu-nav {
+    float: none;
+    clear: both;
+  }
+}
+
 /* Intro */
 
 .intro {
@@ -117,6 +126,16 @@ body {
 .intro p {
   font-style: italic;
   font-size: 1.125em;
+}
+
+@media only screen and (max-width: 739px) {
+  .intro {
+    padding: 40px 0;
+  }
+
+  .intro h1 {
+    font-size: 2.5em;
+  }
 }
 
 /* About */
@@ -188,6 +207,20 @@ diretamente abaixo da classe about */
 
   /* Nesse caso não precisamos usar z-index pois a imagem não possui position
   definida. Caso ela tivesse, teríamos que definir o z-index da img e do item*/
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1080px) {
+  .about-container {
+    max-width: 740px;
+  }
+
+  .about-item {
+    width: 300px;
+  }
+
+  .about-item h3 {
+    width: 50%;
+  }
 }
 
 
@@ -275,6 +308,26 @@ diretamente abaixo da classe about */
   margin: 20px auto 0 auto;
 }
 
+@media only screen and (min-width: 740px) and (max-width: 1080px) {
+  .products-container {
+    max-width: 720px;
+  }
+
+  .products-item {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .products-container {
+    max-width: 300px;
+  }
+
+  .products-item {
+    width: 100%;
+  }
+}
+
 /* Places */
 
 .places {
@@ -288,8 +341,14 @@ diretamente abaixo da classe about */
   margin: 60px auto;
 
   /* O overflow hidden é uma outra forma de "clearfix" bastante utilizada, porém,
-  ele traz alguns outros problemas quando temos sobreposição */
-  overflow: hidden;
+  ele traz alguns outros problemas quando temos sobreposição e também no responsivo */
+  /* overflow: hidden; */
+}
+
+.places-item::after, .places-item::before {
+  display: table;
+  content: '';
+  clear: both;
 }
 
 .places-item img {
@@ -330,6 +389,32 @@ diretamente abaixo da classe about */
   padding: 10px 20px;
 }
 
+@media only screen and (min-width: 740px) and (max-width: 1080px) {
+  .places {
+    max-width: 740px;
+  }
+
+  .places-item > div, .places-item > img {
+    width: 350px;
+  }
+}
+
+
+@media only screen and (max-width: 740px) {
+  .places {
+    max-width: 300px;
+  }
+
+  .places-item {
+    width: 100%;
+  }
+
+  .places-item > div, .places-item > img {
+    width: 100%;
+    margin: 0;
+  }
+}
+
 /* Newsletter */
 
 .newsletter {
@@ -340,7 +425,13 @@ diretamente abaixo da classe about */
 .newsletter-container {
   max-width: 1080px;
   margin: 0 auto;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+.newsletter-container::after, .newsletter-container::before {
+  display: table;
+  content: '';
+  clear: both;
 }
 
 .subscribe-info {
@@ -393,6 +484,26 @@ diretamente abaixo da classe about */
   cursor: pointer;
 }
 
+@media only screen and (min-width: 740px) and (max-width: 1080px) {
+  .newsletter-container {
+    max-width: 740px;
+  }
+
+  .subscribe-info, .subscribe-info form, .subscribe-form input {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .newsletter-container {
+    max-width: 300px;
+  }
+
+  .subscribe-info, .subscribe-info form, .subscribe-form input {
+    width: 300px;
+  }
+}
+
 /* Footer */
 
 .footer {
@@ -415,4 +526,25 @@ diretamente abaixo da classe about */
 
 .footer img {
   float: right;
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1080px) {
+  .footer-container {
+    max-width: 740px;
+  }
+
+  .subscribe-info, .subscribe-info form, .subscribe-form input {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+  .footer-container {
+    max-width: 300px;
+  }
+
+  .footer p, .footer img {
+    margin: 10px auto;
+    width: 100%;
+  }
 }
