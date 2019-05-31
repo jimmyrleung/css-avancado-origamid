@@ -1,0 +1,131 @@
+img {
+  /* Esse style ajuda a imagem não distorcer */
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.container::after, .container::before {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Grids */
+/* Grids são semelhantes ao que são "colunas" em outros frameworks */
+/* grids geralmente flutuam a esquerda e têm o seu display como 'block */
+
+/* Valores padrão para as grids */
+.grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, 
+.grid-10, .grid-11, .grid-12 {
+  display: block;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  min-height: 1px; /* Mínimo de 1 pixel para que ela sempre exista mesmo sem conteúdo */
+}
+
+/* Regra para cálculo de grid em pixels
+
+Para definir a width de cada grid, dividimos o valor que definimos no container 
+(os 1080px) pela quantidade de grids que queremos montar (geralmente são 12).
+Em seguida, multiplicamos a unidade de grid pela quantidade de grids que a classe
+representa. Por último, subtraímos do resultado da divisão os pixels de margem 
+(left e right)
+
+Por exemplo:
+- Container: 1080px
+- Unidade de grid: 1080 / 12 = 90px
+- Margens: 10 left, 10 right
+- grid 1: 90 * 1 - 20 = 70
+- grid 2: 90 * 2 - 20 = 160
+- grid 3: 90 * 3 - 20 = 250
+
+... */
+
+
+/* Regra para cálculo de grid em %
+  
+O método mais comum para trabalhar com grid é a %, pois caso nosso container mude
+de largura, nosso grid continua relevante. Se fosse pixel, teríamos que atualizar
+classe por classe.
+
+Para definir as classes, basta descobrir a unidade de uma grid em % (arredondando
+para baixo para não correr risco de exceder os 100%) e trabalhar em cima desse
+valor SEM ESQUECER DE REMOVER AS MARGENS
+
+Para remover a margem utilizaremos a função 'calc' disponível no CSS. Existe um
+mito de que o calc pode gerar perda de performance, entretanto, o proprio width
+por % já é um calculo e é largamente utilizado, portanto, não há problemas em
+utiliza-lo
+
+*/
+
+.grid-1 {
+  /* 100% / 12 grids (arredondando para baixo sempre) */
+  width: calc(8.333% - 20px);
+} 
+
+.grid-2 {
+  width: calc(16.666% - 20px);
+} 
+
+.grid-3 {
+  width: calc(25% - 20px);
+} 
+
+.grid-4 {
+  width: calc(33.333% - 20px);
+} 
+
+.grid-5 {
+  width: calc(41.666% - 20px);
+} 
+
+.grid-6 {
+  width: calc(50% - 20px);
+} 
+
+.grid-7 {
+  width: calc(58.333% - 20px);
+} 
+
+.grid-8 {
+  width: calc(66.666% - 20px);
+} 
+
+.grid-9 {
+  width: calc(75% - 20px);
+} 
+
+.grid-10 {
+  width: calc(83.333% - 20px);
+} 
+
+.grid-11 {
+  width: calc(91.666% - 20px);
+} 
+
+.grid-12 {
+  width: calc(100% - 20px);
+}
+
+
+/* Mobile */
+@media (max-width: 739px) {
+  .container {
+    max-width: 300px;
+  }
+
+  .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, 
+  .grid-10, .grid-11, .grid-12 {
+    float: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
+}
