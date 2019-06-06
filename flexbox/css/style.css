@@ -14,10 +14,17 @@ body {
 	box-sizing: border-box;
 }
 
-.container{
+.container {
 	display: flex;
 	max-width: 1080px;
 	margin: 0 auto;
+}
+
+@media (max-width: 739px){
+	.container {
+		max-width: 300px;
+		flex-direction: column;
+	}
 }
 
 /* Menu */
@@ -25,6 +32,10 @@ body {
 .menu {
 	background: #252525;
 	padding: 15px 0;
+}
+
+.menu-logo {
+	margin: 0 10px;
 }
 
 .menu-nav {
@@ -46,6 +57,16 @@ body {
 
 .menu-nav ul li a {
 	padding: 10px;
+}
+
+@media (max-width: 739px) {
+	.menu-nav, .menu-logo {
+		margin: 0px;
+	}
+
+	.menu-nav ul li a {
+		padding-left: 0px;
+	}
 }
 
 /* Intro */
@@ -74,6 +95,12 @@ body {
 .intro p {
 	font-style: italic;
 	font-size: 1.125em;
+}
+
+@media (max-width: 739px) {
+	.intro {
+		padding: 60px 0;
+	}
 }
 
 /* Sobre */
@@ -119,6 +146,12 @@ body {
 	margin: 20px auto;
 	max-width: 520px;
 	text-align: center;
+}
+
+@media (max-width: 739px) {
+	.sobre > p {
+		padding: 15px;
+	}
 }
 
 /* Produtos */
@@ -230,6 +263,20 @@ h2.produtos-mineiro::before {
 
 .assine {
 	background: #e7e4d8;
+	padding: 30px 0;
+}
+
+.assine-info {
+	flex: 1;
+	margin: 0 10px;
+}
+
+.assine form {
+	display: flex;
+	flex: 1;
+	margin: 0 10px;
+	flex-wrap: wrap;
+	align-content: flex-start;
 }
 
 .assine-info h2 {
@@ -246,6 +293,9 @@ h2.produtos-mineiro::before {
 }
 
 .assine input {
+	align-self: flex-start;
+	padding: 10px;
+	flex: 1;
 	border: 3px solid #252525;
 	background: none;
 	font-size: 1.5em;
@@ -254,6 +304,9 @@ h2.produtos-mineiro::before {
 }
 
 .assine button {
+	align-self: flex-start;
+	padding: 13px;
+	flex: 1;
 	background: #252525;
 	border: none;
 	font-family: Georgia, serif;
@@ -263,13 +316,35 @@ h2.produtos-mineiro::before {
 	cursor: pointer;
 }
 
+@media (max-width: 739px){
+	.assine-info {
+		margin: 0 0 40px 0;
+	}
+	.assine form {
+		margin: 0px;
+	}
+}
+
 /*Footer*/
 
 .footer {
 	background: #d6d3c8;
+	padding: 40px 0;
 }
 
 .footer p {
 	font-size: 1.125em;
 	line-height: 1.4em;
+	margin: 0 10px;
+	flex: 1;
+}
+
+.footer-img {
+	margin: 0 10px;
+}
+
+@media (max-width: 739px) {
+	.footer-img, .footer p {
+		margin: 10px 0px;
+	}
 }
